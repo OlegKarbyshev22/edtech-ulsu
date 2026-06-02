@@ -1,0 +1,16 @@
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+
+app = FastAPI(title="EdTech ULSU")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def pipeline_page(request: Request):
+    return templates.TemplateResponse(request, "pipeline.html")
