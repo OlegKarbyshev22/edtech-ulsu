@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EdTech ULSU | Запуск pipeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <script src="{{ url_for('static', path='js/pipeline.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar" aria-label="Основная навигация">
+        <a class="brand" href="/">
+          <span class="brand-mark">
+            <img src="{{ url_for('static', path='images/logo.jpg') }}" alt="Логотип EdTech ULSU">
+          </span>
+          <span>EdTech ULSU</span>
+        </a>
+
+        <nav class="nav-links">
+          <a class="nav-link active" href="/">Главная</a>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="pipeline-card" aria-labelledby="pipeline-title">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Обработка выпускных работ</p>
+              <h1 id="pipeline-title">Запуск pipeline</h1>
+            </div>
+
+            <div class="card-actions">
+              <button class="icon-button" type="button" aria-label="Справка">?</button>
+              <button class="secondary-button" type="button">Настройки</button>
+            </div>
+          </div>
+
+          <form data-folders-form>
+            <label class="field-label" for="folder-1">Папки с PDF-файлами ВКР</label>
+
+            <div class="folder-list" data-folder-list></div>
+
+            <button class="add-path-button" type="button" data-add-path>Добавить путь</button>
+            <button class="primary-button" type="submit">Запустить pipeline</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <template id="folder-row-template">
+      <div class="folder-row">
+        <input name="folders" type="text" placeholder="Например: C:\Users\User\Documents\VKR_2026" aria-label="Путь к папке с PDF-файлами">
+        <button class="ghost-button" type="button" data-remove-path>Удалить</button>
+      </div>
+    </template>
+  </body>
+</html>
