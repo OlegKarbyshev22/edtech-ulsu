@@ -1,0 +1,18 @@
+<header class="topbar" aria-label="Основная навигация">
+  <a class="brand" href="/">
+    <span class="brand-mark">
+      <img src="{{ url_for('static', path='images/logo.jpg') }}" alt="Логотип EdTech ULSU">
+    </span>
+    <span>EdTech ULSU</span>
+  </a>
+
+  <nav class="nav-links">
+    <a class="nav-link{% if request.url.path == '/' %} active{% endif %}" href="/">Главная</a>
+    <a class="nav-link{% if request.url.path == '/heads_of_thesis' %} active{% endif %}" href="/heads_of_thesis">Приказы</a>
+  </nav>
+
+  <div class="user-actions">
+    <a class="nav-link{% if request.url.path == '/login' %} active{% endif %}" href="/login">Вход</a>
+    <a class="secondary-button auth-link{% if request.url.path == '/register' %} active{% endif %}" href="/register">Регистрация</a>
+  </div>
+</header>
