@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}EdTech ULSU | Приказы{% endblock %}
+
+{% block content %}
+  <section class="pipeline-card orders-card" aria-labelledby="orders-upload-title">
+    <div class="card-head compact">
+      <div>
+        <p class="eyebrow">Excel-файл или CSV</p>
+        <h1 id="orders-upload-title">Загрузка приказов</h1>
+      </div>
+    </div>
+
+    <form class="upload-form" enctype="multipart/form-data">
+      <label class="field-label" for="order-file">Excel-файл приказа</label>
+      <input id="order-file" name="order_file" type="file" accept=".xlsx,.csv">
+      <button class="primary-button upload-button" type="button">Загрузить приказ</button>
+    </form>
+  </section>
+
+  <section class="pipeline-card orders-card" aria-labelledby="loaded-orders-title">
+    <div class="card-head compact">
+      <div>
+        <p class="eyebrow">История загрузок</p>
+        <h2 id="loaded-orders-title">Загруженные приказы</h2>
+      </div>
+    </div>
+
+    <div class="empty-state">
+      <p>Пока нет загруженных файлов.</p>
+    </div>
+  </section>
+{% endblock %}
